@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Module | LearnSmart India</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header class="app-header">
+  <h1 id="module-title">Module</h1>
+</header>
+
+<main class="container">
+
+  <!-- VIDEO -->
+  <div class="card">
+    <video id="module-video"
+           controls
+           playsinline
+           preload="metadata"></video>
+    <p id="video-status"></p>
+  </div>
+
+  <!-- LESSON CONTENT -->
+  <div class="card" id="lessons-container">
+    <!-- Injected by module.js -->
+  </div>
+
+  <!-- QUIZ BUTTON -->
+  <button id="start-quiz-btn">Proceed to Quiz</button>
+
+</main>
+
+<footer class="site-footer">
+  <button onclick="history.back()">⬅ Back</button>
+</footer>
+
+<script src="js/lessons.js"></script>
+<script src="js/module.js"></script>
+
+</body>
+</html>

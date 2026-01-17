@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LearnSmart India – Quiz</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- OPTIONAL PWA (can keep or remove) -->
+  <!-- <link rel="manifest" href="manifest.json"> -->
+  <meta name="theme-color" content="#1e88e5">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #0f2c67, #1e3c72);
+      min-height: 100vh;
+      font-family: 'Inter', sans-serif;
+    }
+
+    #quiz-root {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      color: #ffffff;
+    }
+
+    label {
+      color: #f1f1f1;
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="top-nav">
+  <div class="brand">
+    <span class="brand-logo">📱</span>
+    <span class="brand-text">
+      <span class="brand-title">LearnSmart India</span>
+      <span class="brand-subtitle">Digital Literacy for All</span>
+    </span>
+  </div>
+  <nav class="nav-links">
+    <a href="index.html">Back to modules</a>
+  </nav>
+</header>
+
+<main>
+  <!-- SINGLE ROOT FOR QUIZ (IMPORTANT) -->
+  <div id="quiz-root"></div>
+</main>
+
+<footer class="site-footer">
+  <small>© 2025 LearnSmart India</small>
+</footer>
+
+<!-- Scripts -->
+<script src="js/lessons.js"></script>
+<script src="js/quiz.js"></script>
+
+</body>
+</html>

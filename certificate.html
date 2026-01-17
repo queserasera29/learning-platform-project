@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Certificate | LearnSmart India</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<main class="container">
+
+  <!-- Certificate Wrapper -->
+  <div id="certificate-wrapper">
+
+    <!-- Certificate -->
+    <div id="certificate">
+
+      <h1 class="cert-title">Certificate of Achievement</h1>
+
+      <p class="cert-line">This is to certify that</p>
+
+      <div id="learnerName" class="cert-name">Learner Name</div>
+
+      <p class="cert-line">has successfully completed</p>
+
+      <div id="moduleTitle" class="cert-module">Module Title</div>
+
+      <p class="cert-score">
+        Score Achieved: <strong><span id="score"></span>%</strong>
+      </p>
+
+      <div class="cert-date" id="certDate"></div>
+      <div class="cert-id">
+        Certificate ID: <strong id="certId"></strong>
+      </div>
+
+      <!-- Footer -->
+      <div class="cert-footer">
+
+        <!-- Issuer -->
+        <div class="cert-issuer">
+          <strong>LearnSmart India</strong><br>
+          Digital Literacy for All
+        </div>
+
+        <!-- QR -->
+        <div class="cert-qr">
+          <canvas id="qr"></canvas>
+          <small>Scan to Verify</small>
+        </div>
+
+        <!-- Seal -->
+        <div class="cert-seal">
+          <img src="assets/learnsmart_seal.png" alt="Official Seal">
+          <div>Digitally Verified</div>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- End Certificate -->
+
+  </div>
+  <!-- End Wrapper -->
+
+  <!-- Download Buttons -->
+  <div style="text-align:center; margin-top:20px;">
+    <button onclick="downloadPNG()">Download PNG</button>
+    <button onclick="downloadPDF()">Download PDF</button>
+  </div>
+
+</main>
+
+<!-- Libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+
+<!-- Certificate Logic -->
+<script src="js/certificate.js"></script>
+
+</body>
+</html>

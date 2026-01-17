@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Verify Certificate — LearnSmart India</title>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: Inter, system-ui, sans-serif;
+      background: #f6f9fc;
+      color: #0b1220;
+      margin: 0;
+      padding: 24px;
+    }
+    .wrap {
+      max-width: 800px;
+      margin: 32px auto;
+      background: #fff;
+      padding: 22px;
+      border-radius: 10px;
+      box-shadow: 0 12px 30px rgba(2,6,23,0.06);
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: 22px;
+      color: #0f172a;
+    }
+    .result {
+      margin-top: 16px;
+      padding: 12px;
+      border-radius: 8px;
+      background: #f8fafc;
+      border: 1px solid #eef2ff;
+    }
+    .badge {
+      display: inline-block;
+      padding: 6px 10px;
+      background: linear-gradient(90deg,#d4af37,#f4d88a);
+      border-radius: 999px;
+      font-weight: 700;
+      color: #04223a;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <h1>Verify Certificate</h1>
+    <p>
+      Paste a certificate ID below or open this page using a QR code
+      (<code>verify.html?certid=...</code>)
+    </p>
+
+    <input
+      id="cert-input"
+      placeholder="Enter certificate ID"
+      style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6eef8;"
+    >
+
+    <div style="margin-top:12px;">
+      <button
+        id="check-btn"
+        style="padding:8px 12px;border-radius:8px;background:#1e3a8a;color:white;border:none;"
+      >
+        Check
+      </button>
+    </div>
+
+    <div id="out" class="result"></div>
+  </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  function getStore() {
+    try {
+      return JSON.parse(localStorage.getItem("learnsmart_certificates") || "{}");
+    } catch (e) {
+      return {};
+    }
+  }
+
+  function qparam(name) {
+    return new URLSearchParams(window.location.search).get(name);
+  }
+
+  function showResult(obj) {
+    const out = document.getElementById("out");
+
+    if (!obj) {
+      out.innerHTML = "<div style='color:#c03535'>Certificate not found.</div>";
+      return;
+    }
+
+    out.innerHTML = `
+      <div><strong>${obj.learnerName}</strong> — <em>${obj.moduleTitle}</em></div>
+      <div style="margin-top:6px;">Score: <strong>${obj.score}%</strong></div>
+      <div style="margin-top:6px;">Issued: ${new Date(obj.date).toLocaleString()}</div>
+      <div style="margin-top:10px;">
+        <span class="badge">VERIFIED</span>
+        <span style="color:#475569;margin-left:8px;">
+          This certificate exists in the LearnSmart local registry.
+        </span>
+      </div>
+      <div style="margin-top:14px;">
+        <small>
+          Online verification would require a backend database.
+        </small>
+      </div>
+    `;
+  }
+
+  document.getElementById("check-btn").addEventListener("click", () => {
+    const id = document.getElementById("cert-input").value.trim();
+    if (!id) {
+      document.getElementById("out").innerHTML =
+        "<div style='color:#c03535'>Please enter a certificate ID.</div>";
+      return;
+    }
+    const store = getStore();
+    showResult(store[id]);
+  });
+
+  /* Auto-check from QR / URL */
+  const q = qparam("certid");
+  if (q) {
+    document.getElementById("cert-input").value = q;
+    document.getElementById("check-btn").click();
+  }
+
+});
+</script>
+
+</body>
+</html>
