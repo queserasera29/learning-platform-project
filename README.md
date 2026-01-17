@@ -46,5 +46,6 @@ Performance analytics and score history can be introduced.
 Conclusion
 This project demonstrates a strong understanding of frontend web development concepts and practical implementation of interactive learning features. It is designed to be simple, effective, and educational.
 
-Developed By
-Ranjana & Adarsh
+Project Contributors
+Ranjana Parab -Frontend Development, Project Design
+Adarsh Dubey  – Quiz Logic, Content Development
